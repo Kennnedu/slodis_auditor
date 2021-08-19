@@ -7,13 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import $ from 'jquery'
-import BarcodeReader from 'barcode-reader'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).on('turbolinks:load', function() {
-});
-
+require('src/barcode_reader');
