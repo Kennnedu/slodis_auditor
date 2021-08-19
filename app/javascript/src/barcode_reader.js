@@ -46,11 +46,6 @@ $(document).on('turbolinks:load', function() {
     }
   }
 
-  async function getCameraSelectionDeviceId() { 
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    return devices.find(device => device.kind === 'videoinput').deviceId
-  }
-
   async function startStream(constraints) {
     stream = await navigator.mediaDevices.getUserMedia(constraints);
     video.srcObject = stream;
@@ -82,8 +77,8 @@ $(document).on('turbolinks:load', function() {
             max: 1440
           },
         },
-        deviceId: {
-          exact: getCameraSelectionDeviceId()
+        facingMode: {
+          exact: 'environment'
         }
       };
       startStream(updatedConstraints);
