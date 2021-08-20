@@ -1,8 +1,9 @@
-import $ from 'jquery'
-import BarcodeReader from 'barcode-reader'
+import $ from 'jquery';
+import BarcodeReader from 'barcode-reader';
 
 $(document).on('turbolinks:load', function() {
   BarcodeReader.Init();
+
   var localized = [];
   var streaming = false;
   var c, ctx, video, stream;
@@ -21,6 +22,8 @@ $(document).on('turbolinks:load', function() {
   ctx = c.getContext("2d");
 
   video = document.createElement("video");
+  video.setAttribute('autoplay', '')
+  video.setAttribute('playsinline', '')
   video.width = 640;
   video.height = 480;
 
@@ -62,7 +65,6 @@ $(document).on('turbolinks:load', function() {
   }
 
   $('#start-scan').on('click', function(){
-
     if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       const updatedConstraints = {
         video: {
@@ -76,10 +78,9 @@ $(document).on('turbolinks:load', function() {
             ideal: 1080,
             max: 1440
           },
+          facingMode: 'environment'
         },
-        facingMode: {
-          exact: 'environment'
-        }
+        audio: false
       };
       startStream(updatedConstraints);
     }
