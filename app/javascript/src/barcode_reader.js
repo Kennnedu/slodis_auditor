@@ -68,16 +68,8 @@ $(document).on('turbolinks:load', function() {
     if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       const updatedConstraints = {
         video: {
-          width: {
-            min: 1280,
-            ideal: 1920,
-            max: 2560,
-          },
-          height: {
-            min: 720,
-            ideal: 1080,
-            max: 1440
-          },
+          width: 640,
+          height: 480,
           facingMode: 'environment'
         },
         audio: false
@@ -85,31 +77,6 @@ $(document).on('turbolinks:load', function() {
       startStream(updatedConstraints);
     }
     
-    // navigator.getUserMedia = (navigator.getUserMedia ||
-    //   navigator.webkitGetUserMedia ||
-    //   navigator.mozGetUserMedia ||
-    //   navigator.msGetUserMedia);
-
-    // if (navigator.getUserMedia) {
-    //   navigator.getUserMedia({
-    //       video: true
-    //     },
-    //     function(localMediaStream) {
-    //       stream = localMediaStream;
-    //       video.srcObject = localMediaStream;
-    //       video.play();
-    //       draw();
-    //       streaming = true;
-    //     },
-    //     function(err) {
-    //       console.log("The following error occured: " + err);
-    //     }
-    //   );
-    // } else {
-    //   console.log("getUserMedia not supported");
-    // }
-    
-    // if (!streaming) return;
     BarcodeReader.DecodeStream(video);
     $('#product-form').hide();
     $('#scanner').show();
