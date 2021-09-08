@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR .
 
-EXPOSE 3000
+EXPOSE 4000
 
 COPY Gemfile ./Gemfile
 COPY Gemfile.lock ./Gemfile.lock
@@ -23,4 +23,4 @@ COPY yarn.lock .
 RUN yarn install
 
 # Configure the main process to run when running the image
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+#CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "4000"]
