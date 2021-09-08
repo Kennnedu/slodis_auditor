@@ -7,9 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import bootstrap from "bootstrap/dist/js/bootstrap"
+import "bootstrap/dist/css/bootstrap"
+import $ from 'jquery'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require('src/barcode_reader');
+$(document).on('turbolinks:load', function() {
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl).show();
+  })
+});
