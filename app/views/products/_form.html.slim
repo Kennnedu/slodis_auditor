@@ -1,0 +1,18 @@
+= form_with(model: product, id: 'product-form') do |form|
+  .mb-3.mt-2
+    = form.label :barcode, Product.human_attribute_name(:barcode)
+    = form.text_field :barcode, autocomplete: 'off', class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}"
+    .invalid-feedback
+      = product.errors.messages[:barcode].join('; ')
+  .mb-3
+    = form.label :amount, Product.human_attribute_name(:amount)
+    = form.text_field :amount, autocomplete: 'off', class: "form-control form-control-lg #{product.errors[:amount].present? ? 'is-invalid' : ''}"
+    .invalid-feedback
+      = product.errors.messages[:amount].join('; ')
+  .mb-3.d-flex.justify-content-between
+    = form.submit product.new_record? ? t('save') : t('update'), class: 'btn btn-primary btn-lg'
+
+#scanner[style="display: none"]
+  .d-flex.flex-column.justify-content-between
+    canvas#videoCanvas[width="320" height="240"]
+
