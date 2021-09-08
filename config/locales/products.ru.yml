@@ -1,0 +1,16 @@
+ru:
+  products:
+    index:
+      title: 'Продукты'
+    new:
+      title: 'Новый продукт'
+      scan: 'Сканировать'
+    show:
+    edit:
+      title: 'Изменить %{barcode}'
+    create:
+      success: '%{product} сохранен!'
+    update:
+      success: '%{product} обновлен!'
+    destroy:
+      success: '%{product} удален!'

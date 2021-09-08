@@ -1,0 +1,16 @@
+en:
+  products:
+    index:
+      title: 'Products'
+    new:
+      title: 'New Product'
+      scan: 'Scan'
+    show:
+    edit:
+      title: 'Edit %{barcode}'
+    create:
+      success: '%{product} was successfully created.'
+    update:
+      success: '%{product} was successfully updated.'
+    destroy:
+      success: '%{product} was successfully destroyed.'

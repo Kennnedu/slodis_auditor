@@ -29,16 +29,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  export_csv: 'Export to CSV'
-  confirm: 'Are you sure?'
-  cancel: 'Cancel'
-  new: 'Add new'
-  show: 'Show'
-  edit: 'Edit'
-  delete: 'Delete'
-  back: 'Back'
-  create: 'Create'
-  save: 'Save'
-  update: 'Update'
+ru:
+  hello: "Привет мир"
+  export_csv: 'Экспорт в CSV'
+  confirm: 'Вы уверены?'
+  cancel: 'Отмена'
+  new: 'Добавить'
+  show: 'Посмотреть'
+  edit: 'Изменить'
+  delete: 'Удалить'
+  back: 'Назад'
+  create: 'Создать'
+  save: 'Сохранить'
+  update: 'Обновить'

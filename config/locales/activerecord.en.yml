@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    models:
+      product:
+        one: 'Product'
+        other: 'Products'
+    attributes:
+      product:
+        barcode: 'Barcode'
+        amount: 'Amount'
