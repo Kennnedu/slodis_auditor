@@ -14,4 +14,8 @@ class Product < ApplicationRecord
       end
     end
   end
+
+  def amount_formatted
+    amount % 1 === 0 ? amount.to_i : amount
+  end
 end
