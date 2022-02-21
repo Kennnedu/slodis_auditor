@@ -1,11 +1,8 @@
 - content_for :body_head do
   .d-flex.justify-content-between
     h4 = t('.title')
-    = link_to t('.scan'), '#', id: 'start-scan', class: 'btn btn-outline-primary', remote: true
-    = link_to t('cancel'), '#', id: 'stop-scan', class: 'btn btn-danger mt-2', remote: true, style: 'display: none'
 
 = render 'form', product: @product
 = link_to t('back'), products_path
 
-= javascript_pack_tag 'edit_product'
 

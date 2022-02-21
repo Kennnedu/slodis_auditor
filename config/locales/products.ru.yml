@@ -1,9 +1,9 @@
 ru:
   products:
     index:
-      title: 'Продукты'
+      title: 'Товар'
     new:
-      title: 'Новый продукт'
+      title: 'Новая позиция'
       scan: 'Сканировать'
     show:
     edit:

@@ -1,18 +1,22 @@
-= form_with(model: product, id: 'product-form') do |form|
-  .mb-3.mt-2
-    = form.label :barcode, Product.human_attribute_name(:barcode)
-    = form.text_field :barcode, autocomplete: 'off', class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}"
-    .invalid-feedback
-      = product.errors.messages[:barcode].join('; ')
-  .mb-3
-    = form.label :amount, Product.human_attribute_name(:amount)
-    = form.text_field :amount, autocomplete: 'off', class: "form-control form-control-lg #{product.errors[:amount].present? ? 'is-invalid' : ''}"
-    .invalid-feedback
-      = product.errors.messages[:amount].join('; ')
-  .mb-3.d-flex.justify-content-between
-    = form.submit product.new_record? ? t('save') : t('update'), class: 'btn btn-primary btn-lg'
+div data-controller="barcode-reader"
+  = link_to t('scan'), '#', 'data-barcode-reader-target': 'startButton', 'data-action': 'barcode-reader#start', class: 'btn btn-outline-primary', remote: true
+  = link_to t('cancel'), '#', 'data-barcode-reader-target': 'stopButton', 'data-action': 'barcode-reader#stop',  class: 'btn btn-danger mt-2', remote: true, style: 'display: none'
 
-#scanner[style="display: none"]
-  .d-flex.flex-column.justify-content-between
-    canvas#videoCanvas[width="320" height="240"]
+  = form_with(model: product, id: 'product-form', data: { 'barcode-reader-target': 'form' }) do |form|
+    .mb-3.mt-2
+      = form.label :barcode, Product.human_attribute_name('barcode')
+      = form.text_field :barcode, autofocus: true, autocomplete: 'off', 'data-barcode-reader-target': 'input', class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}"
+      .invalid-feedback
+        = product.errors.messages[:barcode].join('; ')
+    .mb-3
+      = form.label :amount, Product.human_attribute_name('amount')
+      = form.text_field :amount, autocomplete: 'off', class: "form-control form-control-lg #{product.errors[:amount].present? ? 'is-invalid' : ''}"
+      .invalid-feedback
+        = product.errors.messages[:amount].join('; ')
+    .mb-3.d-flex.justify-content-between
+      = form.submit product.new_record? ? t('save') : t('update'), class: 'btn btn-primary btn-lg'
+
+  div style="display: none" data-barcode-reader-target="scanner"
+    .d-flex.flex-column.justify-content-between
+      canvas width="320" height="240" data-barcode-reader-target="canvas"
 

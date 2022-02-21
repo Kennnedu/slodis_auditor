@@ -9,8 +9,8 @@ ru:
           attributes:
     models:
       product:
-        one: 'Продукт'
-        other: 'Продукты'
+        one: 'Позиция'
+        other: 'Товар'
     attributes:
       product:
         barcode: 'Штрихкод'
