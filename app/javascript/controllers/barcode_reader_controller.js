@@ -66,7 +66,7 @@ export default class extends Controller {
   }
 
   stop(e) {
-    e.preventDefault();
+    e && e.preventDefault();
 
     BarcodeReader.StopStreamDecode();
     this.stream.getTracks()[0].stop();
@@ -78,7 +78,7 @@ export default class extends Controller {
   }
 
   start(e) {
-    e.preventDefault();
+    e && e.preventDefault();
 
     if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       const updatedConstraints = {
