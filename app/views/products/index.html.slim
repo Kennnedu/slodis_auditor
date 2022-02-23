@@ -9,7 +9,7 @@
         th
           = Product.human_attribute_name(:barcode)
         th
-          = Product.human_attribute_name('amount')
+          = Product.human_attribute_name(:amount)
         th colspan="3"
     tbody
       - @products.each do |product|
@@ -26,3 +26,4 @@
             = link_to t('delete'), product, method: :delete, data: { confirm: t('confirm') }
 div
   = link_to t('export_csv'), products_path(format: :csv), class: 'btn btn-outline-primary float-end'
+

@@ -29,6 +29,9 @@ export default class extends Controller {
     BarcodeReader.SetLocalizationCallback(function(result) {
       controller.localized = result;
     });
+
+    this.scannerTarget.hidden = true;
+    this.stopButtonTarget.hidden = true;
   }
 
   draw() {
@@ -62,16 +65,21 @@ export default class extends Controller {
     this.streaming = true;
   }
 
-  stop() {
+  stop(e) {
+    e.preventDefault();
+
     BarcodeReader.StopStreamDecode();
     this.stream.getTracks()[0].stop();
-    $(this.formTarget).show();
-    $(this.scannerTarget).hide();
-    $(this.stopButtonTarget).hide();
-    $(this.startButtonTarget).show();
+
+    this.formTarget.hidden = false;
+    this.scannerTarget.hidden = true;
+    this.stopButtonTarget.hidden = true;
+    this.startButtonTarget.hidden = false;
   }
 
-  start() {
+  start(e) {
+    e.preventDefault();
+
     if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       const updatedConstraints = {
         video: {
@@ -86,9 +94,9 @@ export default class extends Controller {
     }
 
     BarcodeReader.DecodeStream(this.video);
-    $(this.startButtonTarget).hide()
-    $(this.formTarget).hide()
-    $(this.scannerTarget).show()
-    $(this.stopButtonTarget).show()
+    this.startButtonTarget.hidden = true;
+    this.formTarget.hidden = true;
+    this.scannerTarget.hidden = false;
+    this.stopButtonTarget.hidden = false;
   }
 }
