@@ -4,7 +4,7 @@ import BarcodeReader from 'barcode-reader';
 
 // Connects to data-controller="barcode-reader"
 export default class extends Controller {
-  static targets = ["canvas", "input", "scanner", "startButton", "stopButton", "form"];
+  static targets = ["canvas", "barcodeInput",  "amountInput", "scanner", "startButton", "stopButton", "form"];
 
   connect() {
     let controller = this;
@@ -22,8 +22,9 @@ export default class extends Controller {
     controller.video.height = 480;
 
     BarcodeReader.StreamCallback = function(result) {
-      controller.inputTarget.value = result[0]['Value'];
       controller.stop();
+      controller.barcodeInputTarget.value = result[0]['Value'];
+      controller.amountInputTarget.focus();
     };
 
     BarcodeReader.SetLocalizationCallback(function(result) {
