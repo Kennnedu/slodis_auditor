@@ -234,7 +234,6 @@ DEPENDENCIES
   spring
   stimulus-rails (~> 1.0)
   turbo-rails (~> 1.0)
-  tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

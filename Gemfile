@@ -3,29 +3,53 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
-gem "pg", "~> 1.2"
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+# The Ruby barcode generator
+gem 'barby', '~> 0.6.8'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.7'
+
+# Pg is the Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later.
+gem 'pg', '~> 1.2'
+
+# Use Puma as the app server
+gem 'puma', '~> 5.0'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'rails', '~> 6.1.4'
+
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '~> 4.0'
+
+# RMagick is an interface between Ruby and ImageMagick.
+gem 'rmagick', '~> 4.2'
+
+# Use sqlite3 as the database for Active Record
+# gem 'sqlite3', '~> 1.4'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+
+# Slim templates generator for Rails
+gem 'slim-rails', '~> 3.3'
+
+# A modest JavaScript framework for the HTML you already have.
+gem 'stimulus-rails', '~> 1.0'
+
+# The speed of a single-page web application without having to write any JavaScript.
+gem 'turbo-rails', '~> 1.0'
+
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,15 +75,3 @@ group :test do
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "slim-rails", "~> 3.3"
-
-gem "barby", "~> 0.6.8"
-
-gem "rmagick", "~> 4.2"
-
-gem "turbo-rails", "~> 1.0"
-
-gem "stimulus-rails", "~> 1.0"
