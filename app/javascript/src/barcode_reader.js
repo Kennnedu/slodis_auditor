@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import BarcodeReader from 'barcode-reader';
+import BarcodeReader from './barcode-reader';
 
 BarcodeReader.Init();
 

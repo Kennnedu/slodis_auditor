@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import $ from 'jquery';
-import BarcodeReader from 'barcode-reader';
+import BarcodeReader from 'src/barcode-reader';
 
 // Connects to data-controller="barcode-reader"
 export default class extends Controller {
