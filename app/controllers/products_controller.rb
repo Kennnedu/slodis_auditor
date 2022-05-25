@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @page_title = t('.title')
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
 
     respond_to do |format|
       format.html
