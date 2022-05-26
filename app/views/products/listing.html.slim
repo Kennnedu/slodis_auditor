@@ -4,10 +4,12 @@
     = button_tag t('print'), class: 'btn btn-primary float-end', 'data-controller': 'print'
 
 .d-flex.flex-wrap.justify-content-between
-  - @products.each do |product|
+  - @products.each_with_index do |product, index|
     .card.product-card
       = image_tag product.barcode_base64, class: 'product-card__barcode-image'
       .product-card__barcode
         = product.barcode
       .product-card__amount
         = product.amount_formatted
+      .product-card__number
+        = index + 1

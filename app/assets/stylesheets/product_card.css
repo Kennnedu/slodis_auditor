@@ -21,6 +21,13 @@
   text-align: center;
 }
 
+.product-card__number {
+  position: absolute;
+  bottom: 0;
+  padding: 0 0 5px 10px;
+  font-size: 0.7rem;
+}
+
 @media print {
   .product-card {
     width: 20vw;
@@ -38,5 +45,10 @@
 
   .product-card__amount {
     font-size: 0.8rem;
+  }
+
+  .product-card__number {
+    font-size: 0.3rem;
+    padding: 0 0 5px 5px;
   }
 }
