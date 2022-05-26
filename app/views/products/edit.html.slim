@@ -1,7 +1,6 @@
-h4 = t('.title', barcode: @product.barcode)
-
-= render 'form', product: @product
-
-= link_to t('show'), @product
-|  | 
-= link_to t('back'), products_path
+.card
+  .card-body
+    .card-title
+      .d-flex.justify-content-between
+        h4 = t('.title', barcode: @product.barcode)
+    = render 'form', product: @product

@@ -31,6 +31,7 @@
 
 en:
   hello: "Hello world"
+  application: 'Slodis Auditor'
   export_csv: 'Export to CSV'
   confirm: 'Are you sure?'
   cancel: 'Cancel'
@@ -43,3 +44,4 @@ en:
   save: 'Save'
   update: 'Update'
   scan: 'Scan'
+  listing: 'Listing'

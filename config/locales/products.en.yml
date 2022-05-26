@@ -1,5 +1,7 @@
 en:
   products:
+    listing:
+      title: 'Listing'
     index:
       title: 'Products'
     new:

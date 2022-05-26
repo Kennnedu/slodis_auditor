@@ -1,0 +1,16 @@
+.row
+  .col-md-12.mb-2
+    = button_tag 'Print', class: 'btn btn-primary float-end'
+
+.d-flex.flex-wrap.justify-content-between
+  - @products.each do |product|
+   .card.product-card
+     .row
+       .col-8.row
+         .col-12
+           svg
+             = product.barcode_svg.html_safe
+         .col-12
+           = product.barcode
+       .col-4.text-center.vertical-align
+         = product.amount_formatted

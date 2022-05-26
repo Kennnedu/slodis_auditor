@@ -1,14 +1,16 @@
-p
-  strong
-    = "#{Product.human_attribute_name(:barcode)}: "
-  = @product.barcode
-p
-  strong
-    = "#{Product.human_attribute_name(:amount)}: "
-  = @product.amount_formatted
-p
-  svg
-    = @barcode_svg.html_safe
-= link_to t('edit'), edit_product_path(@product)
-|  | 
-= link_to t('back'), products_path
+.card
+  .card-body
+    p
+      strong
+        = "#{Product.human_attribute_name(:barcode)}: "
+      = @product.barcode
+    p
+      strong
+        = "#{Product.human_attribute_name(:amount)}: "
+      = @product.amount_formatted
+    p
+      svg
+        = @barcode_svg.html_safe
+    = link_to t('edit'), edit_product_path(@product)
+    |  | 
+    = link_to t('back'), products_path

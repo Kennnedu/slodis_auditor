@@ -1,6 +1,7 @@
-- content_for :body_head do
-  .d-flex.justify-content-between
-    h4 = t('.title')
-
-= render 'form', product: @product
+.card
+  .card-body
+    .card-title
+      .d-flex.justify-content-between
+        h4 = t('.title')
+    = render 'form', product: @product
 

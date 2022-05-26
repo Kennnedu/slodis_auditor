@@ -31,6 +31,7 @@
 
 ru:
   hello: "Привет мир"
+  application: 'Слодис Аудитор'
   export_csv: 'Экспорт в CSV'
   confirm: 'Вы уверены?'
   cancel: 'Отмена'
@@ -43,3 +44,4 @@ ru:
   save: 'Сохранить'
   update: 'Обновить'
   scan: 'Сканировать'
+  listing: 'Листинг'

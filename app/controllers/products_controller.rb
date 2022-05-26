@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def listing
+    @page_title = t('.title')
+    @products = Product.all.order(created_at: :desc)
+  end
+
   # GET /products/1 or /products/1.json
   def show
     @page_title = @product.barcode

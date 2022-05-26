@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      = @page_title || 'Slodis Auditor'
+      = @page_title || t('application')
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
@@ -10,11 +10,7 @@ html
     = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
   body
     .container.mt-5
-      .card
-        .card-body
-          .card-title
-            = yield :body_head
-          = yield
+      = yield
     - if notice
       .toast-container.position-absolute.p-3.top-0.start-50.translate-middle-x
         .toast.align-items-center.bg-primary.text-white aria-atomic="true" aria-live="asserive" data-bs-delay="5000" role="alert"

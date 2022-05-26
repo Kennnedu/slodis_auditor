@@ -18,4 +18,9 @@ class Product < ApplicationRecord
   def amount_formatted
     amount % 1 === 0 ? amount.to_i : amount
   end
+
+  def barcode_svg
+    barby_barcode = Barby::Code128B.new(barcode)
+    Barby::SvgOutputter.new(barby_barcode).to_svg
+  end
 end

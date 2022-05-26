@@ -1,5 +1,7 @@
 ru:
   products:
+    listing:
+      title: 'Листинг'
     index:
       title: 'Товар'
     new:
