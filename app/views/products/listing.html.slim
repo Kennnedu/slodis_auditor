@@ -6,7 +6,7 @@
 .d-flex.flex-wrap.justify-content-between
   - @products.each_with_index do |product, index|
     .card.product-card
-      = image_tag product.barcode_base64, class: 'product-card__barcode-image'
+      = image_tag product.barcode_image, class: 'product-card__barcode-image'
       .product-card__barcode
         = product.barcode
       .product-card__amount

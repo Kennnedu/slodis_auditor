@@ -3,6 +3,8 @@ require 'csv'
 class Product < ApplicationRecord
   validates :barcode, :amount, presence: true
 
+  before_create :set_barcode_image
+
   def self.to_csv
     attributes = %w{barcode amount}
 
@@ -19,8 +21,8 @@ class Product < ApplicationRecord
     amount % 1 === 0 ? amount.to_i : amount
   end
 
-  def barcode_base64
+  def set_barcode_image
     barby_barcode = Barby::Code128B.new(barcode)
-    "data:image/png;base64,#{Base64.encode64(Barby::RmagickOutputter.new(barby_barcode).to_png)}"
+    self.barcode_image = "data:image/png;base64,#{Base64.encode64(Barby::RmagickOutputter.new(barby_barcode).to_png)}"
   end
 end

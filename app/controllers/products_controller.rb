@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @page_title = t('.title')
-    @products = Product.all.order(created_at: :desc)
+    @products = Product.select(:id, :barcode, :amount).order(created_at: :desc)
 
     respond_to do |format|
       format.html
@@ -20,8 +20,6 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @page_title = @product.barcode
-    barcode = Barby::Code128B.new(@product.barcode)
-    @barcode_svg = Barby::SvgOutputter.new(barcode).to_svg
   end
 
   # GET /products/new
