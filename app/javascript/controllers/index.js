@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import BarcodeReaderController from "./barcode_reader_controller.js"
 application.register("barcode-reader", BarcodeReaderController)
+
+import PrintController from "./print_controller.js"
+application.register("print", PrintController)

@@ -1,16 +1,13 @@
-.row
-  .col-md-12.mb-2.d-flex.justify-content-between
-    = link_to 'Back', products_path
-    = button_tag 'Print', class: 'btn btn-primary float-end'
+.row.d-print-none
+  .col-md-12.mb-2.d-flex.justify-content-between.align-items-center
+    = link_to t('back'), products_path
+    = button_tag t('print'), class: 'btn btn-primary float-end', 'data-controller': 'print'
 
 .d-flex.flex-wrap.justify-content-between
   - @products.each do |product|
     .card.product-card
-      .card-body
-        .product-card__barcode-svg
-          = product.barcode_svg.html_safe
-        .product-card__barcode
-          = product.barcode
-      .card-footer
-        .product-card__amount
-          = product.amount_formatted
+      = image_tag product.barcode_base64, class: 'product-card__barcode-image'
+      .product-card__barcode
+        = product.barcode
+      .product-card__amount
+        = product.amount_formatted

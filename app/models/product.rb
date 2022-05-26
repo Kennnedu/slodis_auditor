@@ -19,8 +19,8 @@ class Product < ApplicationRecord
     amount % 1 === 0 ? amount.to_i : amount
   end
 
-  def barcode_svg
+  def barcode_base64
     barby_barcode = Barby::Code128B.new(barcode)
-    Barby::SvgOutputter.new(barby_barcode).to_svg
+    "data:image/png;base64,#{Base64.encode64(Barby::RmagickOutputter.new(barby_barcode).to_png)}"
   end
 end
