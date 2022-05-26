@@ -2,3 +2,13 @@
   width: 30%;
   margin: 0 0 7px;
 }
+
+.product-card__barcode {
+  font-size: 0.9rem;
+  margin-left: 7px;
+}
+
+.product-card__amount {
+  font-size: 1.5rem;
+  text-align: center;
+}
