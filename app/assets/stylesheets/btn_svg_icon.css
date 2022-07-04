@@ -1,0 +1,8 @@
+.btn-icon svg {
+  fill: var(--bs-primary);
+}
+
+.btn-icon:hover svg {
+  fill: var(--bs-white);
+}
+
