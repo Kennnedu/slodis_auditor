@@ -4,3 +4,4 @@
       .d-flex.justify-content-between
         h4 = t('.title', barcode: @product.barcode)
     = render 'form', product: @product
+    = link_to t('delete'), @product, method: :delete, class: 'btn btn-outline-danger mt-5', data: { confirm: t('confirm') }
