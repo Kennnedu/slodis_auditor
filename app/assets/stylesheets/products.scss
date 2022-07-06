@@ -19,4 +19,8 @@ $danger: #f25042;
   color: $light;
 }
 
+mark {
+  color: var(--bs-body-color);
+}
+
 @import 'product_card'

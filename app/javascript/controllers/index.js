@@ -15,3 +15,6 @@ application.register("number-mask", NumberMaskController)
 
 import PrintController from "./print_controller.js"
 application.register("print", PrintController)
+
+import ProductsSearchController from "./products_search_controller.js"
+application.register("products-search", ProductsSearchController)
