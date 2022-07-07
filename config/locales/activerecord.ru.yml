@@ -1,17 +1,13 @@
 ru:
   activerecord:
-    errors:
-      messages:
-        blank:
-          'заполните поле'
-      models:
-        product:
-          attributes:
     models:
       product:
-        one: 'Позиция'
+        one: 'Позицию'
         other: 'Товар'
+        many: 'Позиции'
     attributes:
       product:
         barcode: 'Штрихкод'
         amount: 'Кол-во'
+        created_at: 'Время Создания'
+        updated_at: 'Время Обновления'
