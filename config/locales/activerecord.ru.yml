@@ -4,10 +4,22 @@ ru:
       product:
         one: 'Позицию'
         other: 'Товар'
+        few: 'Позиции'
         many: 'Позиции'
+      inventory:
+        one: 'Инвентаризацию'
+        few: 'Инвенторизации'
+        other: 'Ивентаризация'
+        many: 'Ивентаризации'
     attributes:
       product:
+        inventory: 'Инвентаризация'
         barcode: 'Штрихкод'
         amount: 'Кол-во'
         created_at: 'Время Создания'
         updated_at: 'Время Обновления'
+      inventory:
+        description: 'Описание'
+        created_at: 'Время Создания'
+        updated_at: 'Время Обновления'
+        links: 'Ссылки'

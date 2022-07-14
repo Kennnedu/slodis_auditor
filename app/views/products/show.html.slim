@@ -12,4 +12,4 @@
       = image_tag @product.barcode_image
     = link_to t('edit'), edit_product_path(@product)
     |  | 
-    = link_to t('back'), products_path
+    = link_to t('back'), inventory_products_path(@product.inventory_id)

@@ -1,21 +1,11 @@
 require 'csv'
 
 class Product < ApplicationRecord
+  belongs_to :inventory
+
   validates :barcode, :amount, presence: true
 
   before_create :set_barcode_image
-
-  def self.to_csv
-    attributes = %w{barcode amount}
-
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
-
-      all.each do |user|
-        csv << attributes.map{ |attr| user.send(attr) }
-      end
-    end
-  end
 
   def amount_formatted
     amount % 1 === 0 ? amount.to_i : amount

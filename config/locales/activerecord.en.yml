@@ -4,7 +4,17 @@ en:
       product:
         one: 'Product'
         other: 'Products'
+      inventory:
+        one: 'Inventory'
+        other: 'Inventories'
     attributes:
       product:
         barcode: 'Barcode'
         amount: 'Amount'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
+      inventory:
+        description: 'Description'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
+        links: 'Links'
