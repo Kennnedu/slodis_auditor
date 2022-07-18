@@ -1,10 +1,15 @@
 ru:
   activerecord:
     models:
+      auditor:
+        one: 'Аудитор'
+        other: 'Аудитор'
+        few: 'Аудитора'
+        many: 'Аудиторы'
       product:
         one: 'Позицию'
         other: 'Товар'
-        few: 'Позиции'
+        few: 'Позиций'
         many: 'Позиции'
       inventory:
         one: 'Инвентаризацию'
@@ -12,14 +17,21 @@ ru:
         other: 'Ивентаризация'
         many: 'Ивентаризации'
     attributes:
+      inventory:
+        id: 'Идентификатор'
+        status: 'Статус'
+        description: 'Описание'
+        created_at: 'Время Создания'
+        updated_at: 'Время Обновления'
+      auditor:
+        name: 'Имя'
+        token: 'Токен'
+        created_at: 'Время Создания'
+        updated_at: 'Время Обновления'
       product:
         inventory: 'Инвентаризация'
+        auditor: 'Аудитор'
         barcode: 'Штрихкод'
         amount: 'Кол-во'
         created_at: 'Время Создания'
         updated_at: 'Время Обновления'
-      inventory:
-        description: 'Описание'
-        created_at: 'Время Создания'
-        updated_at: 'Время Обновления'
-        links: 'Ссылки'

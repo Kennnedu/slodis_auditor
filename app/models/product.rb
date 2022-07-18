@@ -1,7 +1,6 @@
-require 'csv'
-
 class Product < ApplicationRecord
   belongs_to :inventory
+  belongs_to :auditor
 
   validates :barcode, :amount, presence: true
 

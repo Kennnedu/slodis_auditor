@@ -8,13 +8,21 @@ en:
         one: 'Inventory'
         other: 'Inventories'
     attributes:
+      inventory:
+        id: 'ID'
+        status: 'Status'
+        description: 'Description'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
+      auditor:
+        name: 'Name'
+        token: 'Token'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
       product:
+        inventory: 'Inventory'
+        auditor: 'Auditor'
         barcode: 'Barcode'
         amount: 'Amount'
         created_at: 'Created At'
         updated_at: 'Updated At'
-      inventory:
-        description: 'Description'
-        created_at: 'Created At'
-        updated_at: 'Updated At'
-        links: 'Links'

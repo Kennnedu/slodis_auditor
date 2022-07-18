@@ -1,31 +1,39 @@
 ActiveAdmin.register Inventory do
-  permit_params :description
+  scope('All') { |scope| scope.all }
+  scope('Active') { |scope| scope.active }
+  scope('Inactive') { |scope| scope.inactive }
+
+  filter :description
+  filter :created_at
+
+  permit_params :description, :status
 
   index do
-    column :id do |inventory|
-      link_to inventory.id, admin_inventory_path(inventory)
-    end
-    column :description
+    column :id 
+    column(:status) { |i| status_tag(i.status) }
     column :created_at
-    column :updated_at
+    actions defaults: false do |inventory|
+      a I18n.t('active_admin.view'), href: admin_inventory_path(inventory), class: "view_link member_link"
+      a I18n.t('active_admin.edit'), href: edit_admin_inventory_path(inventory), class: "edit_link member_link"
+    end
   end
 
   show do
     attributes_table do
       row :id
+      row(:status) { |i| status_tag(i.status) }
       row :description
       row :created_at
-      row :links do |inventory|
-        ul do
-          li do
-            a t('products.listing.title'), href: listing_inventory_products_path(inventory), target: '_blank'
-          end
-          li do
-            a t('products.index.title'), href: inventory_products_path(inventory), target: '_blank'
-          end
-        end
-      end
     end
 #    active_admin_comments
+  end
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :status
+      f.input :description
+    end
+    f.actions
   end
 end

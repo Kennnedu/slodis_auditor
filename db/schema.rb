@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_07_165658) do
+ActiveRecord::Schema.define(version: 2022_07_15_125017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,17 @@ ActiveRecord::Schema.define(version: 2022_07_07_165658) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "auditors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
   end
 
   create_table "products", force: :cascade do |t|
@@ -53,9 +60,12 @@ ActiveRecord::Schema.define(version: 2022_07_07_165658) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "barcode_image", default: ""
-    t.bigint "inventory_id"
+    t.bigint "inventory_id", null: false
+    t.bigint "auditor_id", null: false
+    t.index ["auditor_id"], name: "index_products_on_auditor_id"
     t.index ["inventory_id"], name: "index_products_on_inventory_id"
   end
 
+  add_foreign_key "products", "auditors"
   add_foreign_key "products", "inventories"
 end

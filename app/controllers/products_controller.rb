@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin_user!, only: :listing
+  before_action :authorize_auditor!
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :set_inventory, only: %i[ index new create listing ]
 
   # GET /products or /products.json
   def index
     @page_title = t('.title')
-    @products = @inventory.products.select('products.id, products.barcode, products.amount, row_number() over(order by products.created_at asc)').order('row_number desc')
+    @products = auditor_scope.select('products.id, products.barcode, products.amount, row_number() over(order by products.created_at asc)').order('row_number desc')
   end
 
   def listing
@@ -31,11 +33,11 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = @inventory.products.new(product_params)
+    @product = auditor_scope.new(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to new_inventory_product_path(@inventory), notice: t('.success', product: @product.barcode) }
+        format.html { redirect_to new_product_path, notice: t('.success', product: @product.barcode) }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,8 +69,12 @@ class ProductsController < ApplicationController
   end
 
   private
+    def auditor_scope
+      @inventory.products.where(auditor_id: session[:current_auditor_id])
+    end
+
     def set_inventory
-      @inventory = Inventory.find(params[:inventory_id])
+      @inventory = Inventory.active.order(created_at: :desc).first!
     end
 
     # Use callbacks to share common setup or constraints between actions.
