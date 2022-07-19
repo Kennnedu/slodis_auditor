@@ -3,7 +3,7 @@ ru:
     models:
       auditor:
         one: 'Аудитор'
-        other: 'Аудитор'
+        other: 'Аудиторы'
         few: 'Аудитора'
         many: 'Аудиторы'
       product:
@@ -14,13 +14,24 @@ ru:
       inventory:
         one: 'Инвентаризацию'
         few: 'Инвенторизации'
-        other: 'Ивентаризация'
+        other: 'Ивентаризации'
         many: 'Ивентаризации'
+      product_kind:
+        one: 'Номенклатура'
+        other: 'Номенклатура'
+        few: 'Номенклатура'
+        many: 'Номенклатура'
     attributes:
       inventory:
         id: 'Идентификатор'
         status: 'Статус'
         description: 'Описание'
+        created_at: 'Время Создания'
+        updated_at: 'Время Обновления'
+      product_kind:
+        id: 'Идентификатор'
+        barcode: 'Штрихкод'
+        barcode_image: 'Штрихкод Картинка'
         created_at: 'Время Создания'
         updated_at: 'Время Обновления'
       auditor:
@@ -31,6 +42,7 @@ ru:
       product:
         inventory: 'Инвентаризация'
         auditor: 'Аудитор'
+        product_kind_barcode: 'Штрихкод'
         barcode: 'Штрихкод'
         amount: 'Кол-во'
         created_at: 'Время Создания'

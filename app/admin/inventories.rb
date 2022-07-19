@@ -1,4 +1,5 @@
 ActiveAdmin.register Inventory do
+  menu priority: 2
   scope('All') { |scope| scope.all }
   scope('Active') { |scope| scope.active }
   scope('Inactive') { |scope| scope.inactive }

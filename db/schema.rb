@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_125017) do
+ActiveRecord::Schema.define(version: 2022_07_18_142141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,18 +54,26 @@ ActiveRecord::Schema.define(version: 2022_07_15_125017) do
     t.integer "status"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "product_kinds", force: :cascade do |t|
     t.string "barcode"
+    t.text "barcode_image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "barcode_image", default: ""
     t.bigint "inventory_id", null: false
     t.bigint "auditor_id", null: false
+    t.bigint "product_kind_id", null: false
     t.index ["auditor_id"], name: "index_products_on_auditor_id"
     t.index ["inventory_id"], name: "index_products_on_inventory_id"
+    t.index ["product_kind_id"], name: "index_products_on_product_kind_id"
   end
 
   add_foreign_key "products", "auditors"
   add_foreign_key "products", "inventories"
+  add_foreign_key "products", "product_kinds"
 end

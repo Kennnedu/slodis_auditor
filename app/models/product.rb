@@ -1,17 +1,17 @@
 class Product < ApplicationRecord
   belongs_to :inventory
   belongs_to :auditor
+  belongs_to :product_kind
 
-  validates :barcode, :amount, presence: true
+  delegate :barcode, to: :product_kind, allow_nil: true
 
-  before_create :set_barcode_image
+  validates :amount, presence: true
 
   def amount_formatted
     amount % 1 === 0 ? amount.to_i : amount
   end
 
-  def set_barcode_image
-    barby_barcode = Barby::Code128B.new(barcode)
-    self.barcode_image = "data:image/png;base64,#{Base64.encode64(Barby::RmagickOutputter.new(barby_barcode).to_png)}"
+  def barcode=(barcode)
+    self.product_kind = ProductKind.find_or_create_by(barcode: barcode)
   end
 end
