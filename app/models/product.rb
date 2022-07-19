@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   belongs_to :auditor
   belongs_to :product_kind
 
-  delegate :barcode, to: :product_kind, allow_nil: true
+  delegate :barcode, :barcode_image, to: :product_kind, allow_nil: true
 
   validates :amount, presence: true
 
