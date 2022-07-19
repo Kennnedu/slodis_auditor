@@ -18,14 +18,17 @@ gem 'devise', '~> 4.8'
 # Translations for the devise gem
 gem 'devise-i18n', '~> 1.10'
 
-# Translations for the kaminari gem
-gem 'kaminari-i18n', '~> 0.5.0'
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker', '~> 2.19'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem 'jwt', '~> 2.4'
+
+# Translations for the kaminari gem
+gem 'kaminari-i18n', '~> 0.5.0'
 
 # Pg is the Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later.
 gem 'pg', '~> 1.2'
@@ -66,9 +69,6 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  # A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker', '~> 2.19'
 end
 
 group :development do

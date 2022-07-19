@@ -1,8 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'super_admin@admin.com', password: 'Password1!', password_confirmation: 'Password1!') if Rails.env.development?
+require 'csv'
+
+PRODUCTS_CSV_FILE = './db/products.csv'
+
+AdminUser.create!(email: Rails.application.credentials.super_admin_email,
+                  password: Rails.application.credentials.super_admin_pass,
+                  password_confirmation: Rails.application.credentials.super_admin_pass)
+
+inventory = Inventory.active.create!
+auditor = Auditor.create!(name: Faker::JapaneseMedia::Naruto.character)
+
+rows = CSV.table(PRODUCTS_CSV_FILE)
+
+rows.each do |row|
+  Product.create!({ inventory: inventory, auditor: auditor }.merge(row.to_hash))
+end
