@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to inventory_products_path(@product.inventory_id), notice: t('.success', product: @product.barcode) }
+      format.html { redirect_to products_path, notice: t('.success', product: @product.barcode) }
       format.json { head :no_content }
     end
   end

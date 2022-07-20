@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   delegate :barcode, :barcode_image, to: :product_kind, allow_nil: true
 
-  validates :amount, presence: true
+  validates :amount, :barcode, presence: true
 
   def amount_formatted
     amount % 1 === 0 ? amount.to_i : amount

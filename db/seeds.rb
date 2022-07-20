@@ -1,6 +1,4 @@
-require 'csv'
-
-PRODUCTS_CSV_FILE = './db/products.csv'
+PRODUCTS_JSON_FILE = './db/products.json'
 
 AdminUser.create!(email: Rails.application.credentials.super_admin_email,
                   password: Rails.application.credentials.super_admin_pass,
@@ -9,8 +7,8 @@ AdminUser.create!(email: Rails.application.credentials.super_admin_email,
 inventory = Inventory.active.create!
 auditor = Auditor.create!(name: Faker::JapaneseMedia::Naruto.character)
 
-rows = CSV.table(PRODUCTS_CSV_FILE)
+products = JSON.parse(File.read(PRODUCTS_JSON_FILE))
 
-rows.each do |row|
-  Product.create!({ inventory: inventory, auditor: auditor }.merge(row.to_hash))
+products.each do |product|
+  Product.create!({ inventory: inventory, auditor: auditor }.merge(product))
 end
