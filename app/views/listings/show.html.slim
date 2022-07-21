@@ -1,6 +1,6 @@
 .row.d-print-none
   .col-md-12.mb-2.d-flex.justify-content-between.align-items-center
-    = link_to t('back'), products_path
+    = link_to t('back'), :back, 'data-turbo': false
     = button_tag t('print'), class: 'btn btn-primary float-end', 'data-controller': 'print'
 
 .d-flex.flex-wrap.justify-content-between

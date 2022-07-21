@@ -1,10 +1,43 @@
 en:
   activerecord:
     models:
+      auditor:
+        one: 'Auditor'
+        many: 'Auditors'
+      product_kind:
+        one: 'Product Kind'
+        many: 'Product Kinds'
       product:
         one: 'Product'
         other: 'Products'
+      inventory:
+        one: 'Inventory'
+        other: 'Inventories'
     attributes:
+      inventory:
+        id: 'ID'
+        status: 'Status'
+        description: 'Description'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
+      auditor:
+        id: 'ID'
+        name: 'Name'
+        token: 'Token'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
       product:
+        id: 'ID'
+        inventory: 'Inventory'
+        auditor: 'Auditor'
+        product_kind_barcode: 'Barcode'
         barcode: 'Barcode'
         amount: 'Amount'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
+      product_kind:
+        id: 'ID'
+        barcode: 'Barcode'
+        barcode_image: 'Barcode Image'
+        created_at: 'Created At'
+        updated_at: 'Updated At'

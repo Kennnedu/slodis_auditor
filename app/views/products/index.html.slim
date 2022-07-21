@@ -1,9 +1,6 @@
 .row data-controller="products-search"
-  .col-md-12.mb-2
-    h4 = t('.title')
   .d-flex.justify-content-between.align-items-center.mb-2
-    = link_to t('export_csv'), products_path(format: :csv)
-    = link_to t('listing'), listing_products_path
+    h4 = t('.title')
     = link_to t('new'), new_product_path, class: 'btn btn-primary btn-lg d-block'
   .col-md-12.mb-2.position-relative
     input.form-control.form-control-lg.bg-white type="text" placeholder="#{t('search')}..." data-products-search-target="input" data-action="keyup->products-search#search"
