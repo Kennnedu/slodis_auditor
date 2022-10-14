@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_inventory
 
   def show
-    @products = @inventory.products.includes(:product_kind).all.order(created_at: :desc)
+    @products = @inventory.products.includes(:product_kind, :auditor).all.order(created_at: :desc)
   end
 
   private

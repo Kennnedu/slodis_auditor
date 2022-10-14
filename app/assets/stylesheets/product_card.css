@@ -28,6 +28,14 @@
   font-size: 0.7rem;
 }
 
+.product-card__auditor {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0 3px 5px 10px;
+  font-size: 0.7rem;
+}
+
 @media print {
   .product-card {
     width: 20vw;
@@ -50,5 +58,10 @@
   .product-card__number {
     font-size: 0.3rem;
     padding: 0 0 5px 5px;
+  }
+
+  .product-card__auditor {
+    font-size: 0.3rem;
+    padding: 0 5px 5px 0;
   }
 }
