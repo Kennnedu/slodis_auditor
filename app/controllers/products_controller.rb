@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    @auditor_name = session[:current_auditor_name]
     @page_title = t('.title')
     @products = auditor_scope.select('products.id, products.product_kind_id, products.amount, row_number() over(order by products.created_at asc)').includes(:product_kind).order('row_number desc')
   end

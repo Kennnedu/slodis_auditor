@@ -4,6 +4,7 @@ en:
       title: 'Listing'
     index:
       title: 'Products'
+      header: "%{name} let's add more items"
     new:
       title: 'New Product'
       scan: 'Scan'
