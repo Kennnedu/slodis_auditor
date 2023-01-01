@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     get :listing, on: :collection
   end
 
+  resources :product_kinds, only: :index
+
   resources :listings, only: :show
   get '/session', to: 'session#show'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

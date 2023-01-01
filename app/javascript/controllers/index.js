@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BarcodeInputValidatorController from "./barcode_input_validator_controller.js"
+application.register("barcode-input-validator", BarcodeInputValidatorController)
+
 import BarcodeReaderController from "./barcode_reader_controller.js"
 application.register("barcode-reader", BarcodeReaderController)
 

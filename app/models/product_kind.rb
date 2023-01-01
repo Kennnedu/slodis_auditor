@@ -1,7 +1,7 @@
 class ProductKind < ApplicationRecord
   has_many :products, dependent: :destroy
 
-  validates :barcode, presence: true
+  validates :barcode, presence: true, uniqueness: true
 
   before_create :set_barcode_image
 
