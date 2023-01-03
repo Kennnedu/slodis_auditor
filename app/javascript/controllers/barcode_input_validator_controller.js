@@ -3,13 +3,22 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="barcode-input-validator"
 export default class extends Controller {
   connect() {
-    this.element.addEventListener('keyup', this.validate);
+    this.barcode = this.element.value;
+    this.element.addEventListener('keyup', _e => this.validate());
+    this.element.addEventListener('change', _e => this.validate());
   }
 
-  async validate(e) {
-    const element = e.target
-    const barcode = element.value;
-    const result = await fetch(`/product_kinds.json?barcode=${barcode}`)
+  async validate() {
+    const element = this.element
+    const newBarcode = element.value;
+
+    if (this.barcode === newBarcode) {
+      return null;
+    }
+
+    this.barcode = newBarcode;
+
+    const result = await fetch(`/product_kinds.json?barcode=${newBarcode}`)
     const resJson = await result.json()
 
     if(resJson.length) {

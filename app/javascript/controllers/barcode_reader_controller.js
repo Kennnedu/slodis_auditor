@@ -24,6 +24,7 @@ export default class extends Controller {
     BarcodeReader.StreamCallback = function(result) {
       controller.stop();
       controller.barcodeInputTarget.value = result[0]['Value'];
+      controller.barcodeInputTarget.dispatchEvent(new Event('change'));
       controller.amountInputTarget.focus();
     };
 
