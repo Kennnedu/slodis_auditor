@@ -6,7 +6,7 @@ div data-controller="barcode-reader"
         = form.text_field :barcode, autofocus: true, autocomplete: 'off',
           class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}",
           'data-barcode-reader-target': 'barcodeInput',
-          'data-controller': 'input-mask barcode-input-validator',
+          'data-controller': 'input-mask barcode-storage-checker',
           'data-input-mask-pattern-value': '000000000000000000000000000000'
         = button_tag 'data-barcode-reader-target': 'startButton', 'data-action': 'barcode-reader#start', class: 'btn btn-outline-primary d-block rounded-end btn-icon' do
           svg viewbox=("0 0 512 512") xmlns="http://www.w3.org/2000/svg" width=30

@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="barcode-input-validator"
+// Connects to data-controller="barcode-storage-checker"
 export default class extends Controller {
   connect() {
     this.barcode = this.element.value;
-    this.element.addEventListener('keyup', _e => this.validate());
-    this.element.addEventListener('change', _e => this.validate());
+    this.element.addEventListener('keyup', _e => this.call());
+    this.element.addEventListener('change', _e => this.call());
   }
 
-  async validate() {
+  async call() {
     const element = this.element
     const newBarcode = element.value;
 

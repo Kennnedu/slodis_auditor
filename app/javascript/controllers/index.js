@@ -4,11 +4,11 @@
 
 import { application } from "./application"
 
-import BarcodeInputValidatorController from "./barcode_input_validator_controller.js"
-application.register("barcode-input-validator", BarcodeInputValidatorController)
-
 import BarcodeReaderController from "./barcode_reader_controller.js"
 application.register("barcode-reader", BarcodeReaderController)
+
+import BarcodeStorageCheckerController from "./barcode_storage_checker_controller.js"
+application.register("barcode-storage-checker", BarcodeStorageCheckerController)
 
 import InputMaskController from "./input_mask_controller.js"
 application.register("input-mask", InputMaskController)
