@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
+import debounce from 'src/debounce'
 
 // Connects to data-controller="barcode-storage-checker"
 export default class extends Controller {
   connect() {
     this.barcode = this.element.value;
-    this.element.addEventListener('keyup', _e => this.call());
-    this.element.addEventListener('change', _e => this.call());
+    this.element.addEventListener('keyup', debounce(() => this.call(), 800));
+    this.element.addEventListener('change', debounce(() => this.call(), 800));
   }
 
   async call() {
