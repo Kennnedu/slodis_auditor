@@ -4,6 +4,13 @@ class ListingsController < ApplicationController
 
   def show
     @products = @inventory.products.includes(:product_kind, :auditor).all.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'listing', template: 'listings/show.html.slim', encoding: 'UTF-8'
+      end
+    end
   end
 
   private
