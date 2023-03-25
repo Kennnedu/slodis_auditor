@@ -3,14 +3,19 @@ div data-controller="barcode-reader"
     .mb-3.mt-2
       = form.label :barcode, Product.human_attribute_name('barcode')
       .input-group
-        = form.text_field :barcode, autofocus: true, autocomplete: 'off',
-          class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}",
-          'data-barcode-reader-target': 'barcodeInput',
-          'data-controller': 'input-mask', 
-          'data-input-mask-pattern-value': '000000000000000000000000000000'
+        .barcode-hint data-controller="barcode-hint" data-barcode-hint-loading-class="position-absolute spinner-border top-0 end-0 m-2" data-barcode-hint-exist-class="barcode-hint_exist" data-barcode-hint-absent-class="barcode-hint_absent"
+          = form.text_field :barcode, autofocus: true, autocomplete: 'off', list: 'barcodes',
+            class: "form-control form-control-lg #{product.errors[:barcode].present? ? 'is-invalid' : ''}",
+            'data-barcode-reader-target': 'barcodeInput',
+            'data-controller': 'input-mask',
+            'data-barcode-hint-target': 'input',
+            'data-input-mask-pattern-value': '000000000000000000000000000000'
+          datalist#barcodes data-barcode-hint-target="suggestions"
+
         = button_tag 'data-barcode-reader-target': 'startButton', 'data-action': 'barcode-reader#start', class: 'btn btn-outline-primary d-block rounded-end btn-icon' do
-          svg viewbox=("0 0 512 512") xmlns="http://www.w3.org/2000/svg" width=30
-            path d=("M194.6 32H317.4C338.1 32 356.4 45.22 362.9 64.82L373.3 96H448C483.3 96 512 124.7 512 160V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V160C0 124.7 28.65 96 64 96H138.7L149.1 64.82C155.6 45.22 173.9 32 194.6 32H194.6zM256 384C309 384 352 341 352 288C352 234.1 309 192 256 192C202.1 192 160 234.1 160 288C160 341 202.1 384 256 384z") /
+          svg.bi.bi-camera[xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewbox="0 0 16 16"]
+            path[d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"]
+            path[d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"]
         .invalid-feedback
           = product.errors.messages[:barcode].join('; ')
     .mb-3

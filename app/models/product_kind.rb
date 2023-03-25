@@ -1,7 +1,9 @@
 class ProductKind < ApplicationRecord
   has_many :products, dependent: :destroy
 
-  validates :barcode, presence: true
+  scope :search_by_barcode, ->(barcode) { where('product_kinds.barcode LIKE ?', "%#{barcode}%") }
+
+  validates :barcode, presence: true, uniqueness: true
 
   before_create :set_barcode_image
 

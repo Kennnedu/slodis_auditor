@@ -7,6 +7,9 @@ import { application } from "./application"
 import BarcodeReaderController from "./barcode_reader_controller.js"
 application.register("barcode-reader", BarcodeReaderController)
 
+import BarcodeHintController from "./barcode_hint_controller.js"
+application.register("barcode-hint", BarcodeHintController)
+
 import InputMaskController from "./input_mask_controller.js"
 application.register("input-mask", InputMaskController)
 

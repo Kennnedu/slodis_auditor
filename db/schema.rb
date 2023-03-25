@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_07_18_142141) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "status"
+    t.integer "status", default: 0, null: false
   end
 
   create_table "product_kinds", force: :cascade do |t|
