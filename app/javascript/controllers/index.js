@@ -7,8 +7,8 @@ import { application } from "./application"
 import BarcodeReaderController from "./barcode_reader_controller.js"
 application.register("barcode-reader", BarcodeReaderController)
 
-import BarcodeStorageCheckerController from "./barcode_storage_checker_controller.js"
-application.register("barcode-storage-checker", BarcodeStorageCheckerController)
+import BarcodeHintController from "./barcode_hint_controller.js"
+application.register("barcode-hint", BarcodeHintController)
 
 import InputMaskController from "./input_mask_controller.js"
 application.register("input-mask", InputMaskController)
