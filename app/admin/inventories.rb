@@ -16,7 +16,10 @@ ActiveAdmin.register Inventory do
     actions defaults: false do |inventory|
       a I18n.t('active_admin.view'), href: admin_inventory_path(inventory), class: "view_link member_link"
       a I18n.t('active_admin.edit'), href: edit_admin_inventory_path(inventory), class: "edit_link member_link"
-      a I18n.t('listings.show.title'), href: listing_path(inventory.id), class: "edit_link member_link"
+      a I18n.t('listings.show.title'), href: listing_path(inventory.id), class: "edit_link member_link",
+        target: '_blank'
+      a "#{I18n.t('listings.show.title')} PDF", href: listing_path(inventory.id, format: :pdf), class: "edit_link member_link",
+        target: '_blank'
     end
   end
 

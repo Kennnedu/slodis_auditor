@@ -66,6 +66,12 @@ gem 'turbo-rails', '~> 1.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 
+# PDF generator (from HTML) plugin for Ruby on Rails
+gem 'wicked_pdf', '~> 2.6'
+
+# Ruby gem containing easily installable access to wkhtmltopdf application
+gem 'wkhtmltopdf-binary', github: 'willnet/wkhtmltopdf_binary_gem', branch: 'arm'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -89,4 +95,3 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-
