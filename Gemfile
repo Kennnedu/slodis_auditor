@@ -70,7 +70,7 @@ gem 'webpacker', '~> 5.0'
 gem 'wicked_pdf', '~> 2.6'
 
 # Ruby gem containing easily installable access to wkhtmltopdf application
-gem 'wkhtmltopdf-binary'#, github: 'willnet/wkhtmltopdf_binary_gem', branch: 'arm'
+gem 'wkhtmltopdf-binary', github: 'willnet/wkhtmltopdf_binary_gem', branch: 'arm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
