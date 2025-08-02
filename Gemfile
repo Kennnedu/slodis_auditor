@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.1.0'
 
 # The administration framework for Ruby on Rails applications.
 gem 'activeadmin', '~> 2.13'
@@ -70,7 +70,7 @@ gem 'webpacker', '~> 5.0'
 gem 'wicked_pdf', '~> 2.6'
 
 # Ruby gem containing easily installable access to wkhtmltopdf application
-gem 'wkhtmltopdf-binary', github: 'willnet/wkhtmltopdf_binary_gem', branch: 'arm'
+#gem 'wkhtmltopdf-binary', github: 'willnet/wkhtmltopdf_binary_gem', branch: 'arm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -95,3 +95,9 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
+#gem "grover", "~> 1.1"
+#
+#gem "prawn", "~> 2.4"
+#
+#gem "localhost", "~> 1.3"
